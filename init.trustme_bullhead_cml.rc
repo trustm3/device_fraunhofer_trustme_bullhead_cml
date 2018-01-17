@@ -1,0 +1,47 @@
+import /init.trustme_generic.rc
+import /init.bullhead.usb.rc
+
+on early-init
+    # create device specific mountpoints
+    mkdir /firmware 0771 system system
+    mkdir /radio 0771 system system
+
+on fs
+    mount_all fstab.bullhead
+    swapon_all fstab.bullhead
+
+on post-fs-data
+   write /sys/class/graphics/fb0/blank 0
+   mkdir /data/cml/communication 0755 root root
+   mount tmpfs tmpfs /data/cml/communication mode=0755
+
+################################################################################
+## Charger related stuff copied from device/lge/bullhead/init.bullhead.rc
+##
+service charger /charger
+    class charger
+
+on charger
+    # disable FPS clk
+    write /sys/bus/spi/drivers/fpc1020/spi1.2/clk_enable 0
+
+    # low power governing
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+
+    # Disable CPU retention
+    write /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a53/cpu1/retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a53/cpu2/retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a53/cpu3/retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a57/cpu4/retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a57/cpu5/retention/idle_enabled 0
+    # Disable L2 retention
+    write /sys/module/lpm_levels/system/a53/a53-l2-retention/idle_enabled 0
+    write /sys/module/lpm_levels/system/a57/a57-l2-retention/idle_enabled 0
+
+################################################################################

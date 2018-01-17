@@ -1,0 +1,4 @@
+The *_cml device should provide a boot.img to be flashed on the trust|me phones.
+It includes a kernel (from *-kernel) and the basic CML components which are
+statically linked and stored on the ramdisk. The kernel and the ramdisk are put
+together in the boot.img. The system.img produced by this device can be ignored.

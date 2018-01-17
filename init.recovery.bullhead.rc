@@ -1,0 +1,19 @@
+# activate shell in recovery needed for adb shell
+on init
+    export PATH /bin:/sbin:/system/bin:
+    mkdir /system/bin 0755 root shell
+    chown root shell /sbin
+    chown root shell /sbin/busybox-android
+    chown root shell /sbin/toolbox_static
+    chmod /sbin/busybox-android 0750
+    chmod /sbin/toolbox_static 0750
+    start busybox-symlinks
+
+# mount data in recovery, because it contains the adb pub key
+on fs
+    mount_all fstab.bullhead
+
+## Daemon processes to be run by init.
+##
+service busybox-symlinks /sbin/busybox-android --install -s /system/bin
+    oneshot
