@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES := \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 PRODUCT_NAME := trustme_bullhead_cml
-PRODUCT_DEVICE := bullhead
+PRODUCT_DEVICE := trustme_bullhead_cml
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := trust|me CML for Nexus 5X
 PRODUCT_MANUFACTURER := fraunhofer
