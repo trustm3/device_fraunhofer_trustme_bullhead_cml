@@ -39,6 +39,11 @@ PRODUCT_MODEL := trust|me CML for Nexus 5X
 PRODUCT_MANUFACTURER := fraunhofer
 TRUSTME_HARDWARE := bullhead
 
+# For android_filesystem_config.h
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := device/lge/bullhead/android_filesystem_config.h
+PRODUCT_PACKAGES += \
+   fs_config_files
+
 ##################################################
 # Configure device specific parts for CML
 

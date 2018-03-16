@@ -84,6 +84,7 @@ TARGET_RECOVERY_FSTAB = device/fraunhofer/trustme_bullhead_cml/fstab.recovery.bu
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
+       device/fraunhofer/trustme_bullhead_cml/sepolicy \
        device/lge/bullhead/sepolicy
 
 TARGET_USES_64_BIT_BINDER := true
