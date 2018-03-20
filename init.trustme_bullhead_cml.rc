@@ -1,4 +1,6 @@
 import /init.trustme_generic.rc
+import /init.trustme_generic_me.rc
+
 import /init.bullhead.usb.rc
 
 on early-init
