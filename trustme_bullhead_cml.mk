@@ -51,6 +51,7 @@ PRODUCT_COPY_FILES += \
     device/fraunhofer/trustme_bullhead_cml/fstab.bullhead:root/fstab.bullhead \
     device/fraunhofer/trustme_bullhead_cml/init.trustme_bullhead_cml.rc:root/init.rc \
     device/fraunhofer/trustme_bullhead_cml/init.recovery.bullhead.rc:root/init.recovery.bullhead.rc \
-    device/lge/bullhead/init.bullhead.usb.rc:root/init.bullhead.usb.rc
+    device/lge/bullhead/init.bullhead.usb.rc:root/init.bullhead.usb.rc \
+    device/fraunhofer/trustme_generic/cml/init.trustme_generic_me.rc:root/init.trustme_generic_me.rc
 
 $(call inherit-product, device/fraunhofer/trustme_generic/trustme_generic_cml.mk)
